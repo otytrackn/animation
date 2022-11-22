@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title> Animation </title>
+    <style media="screen">
+    /* mario */
+    .mario {
+      width: 68px;
+      height: 68px;
+      display: block;
+      position: relative;
+      background: url('images/mario-walk-n-jump-68.png');
+    }
+    .path {
+      width: 68px;
+      height: 68px;
+      display: block;
+      position: relative;
+      animation: path 5s linear infinite;
+    }
+    .jump {
+      position: absolute;
+      top: 0;
+      left: 0;
+      animation: jump 5s steps(1) infinite;
+    }
+    .walk {
+      animation: walk .4s steps(1) infinite;
+    }
+    /* blast */
+    .blast {
+      width: 151px;
+      height: 151px;
+      position: relative;
+      display: block;
+      background: url(images/blast-151.png);
+      animation: blast 1s steps(1) infinite;
+      left: 30%;
+      top: 20%;
+    }
+    .emoji {
+      width: 160px;
+      height: 160px;
+      display: inline-block;
+      position: relative;
+      background: url('images/emoji-160.png');
+    }
+    .emoji-m {
+      width: 160px;
+      height: 160px;
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background: url('images/emoji-160.png');
+      background-position: -160px 0;
+      animation: mouth 1s steps(1) infinite;
+    }
+    .emoji-e{
+      width: 160px;
+      height: 160px;
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background: url('images/emoji-160.png');
+      background-position: -640px 0;
+      animation: eyes 1s steps(1) infinite;
+    }
+    .mouth {
+      animation: mouth 1s steps(1) infinite;
+    }
+    .eyes {
+      animation: eyes 1s steps(1) infinite;
+    }
+    .rotate {
+      animation: rotate 1s ease infinite;
+      animation-play-state: paused;
+    }
+    .rotate:hover {
+      animation-play-state: running;
+    }
+    /* mario */
+    @keyframes jump
+    {0% {opacity: 0;}
+    48% {opacity: 1; background-position: -272px top;}
+    50% {background-position: -340px top;}
+    54% {opacity: 0;}
+    100% {opacity: 0;}
+    }
+    @keyframes walk {
+      0% {background-position: 0 top;}
+      25% {background-position: -68px top;}
+      50% {background-position: -136px top;}
+      75% {background-position: -204px top;}
+    }
+    @keyframes path {
+      0% {left: -68px; top: 200px;}
+      48% {left: 48%; top: 200px;}
+      50% {left: 50%; top: 100px;}
+      54% {left: 54%; top: 200px;}
+      100% {left: 100%; top: 200px;}
+    }
+    /* анимации взрыва */
+      @keyframes blast {
+        0% {opacity: 0; background-position: 0 0;}
+        3% {opacity: 1; background-position: 0 0;}
+        6% {background-position: -151px 0;}
+        9% {background-position: -302px 0;}
+        12% {background-position: -453px 0;}
+        15% {background-position: -604px 0;}
+        18% {background-position: -755px 0;}
+        21% {background-position: -906px 0;}
+        24% {background-position: -1057px 0;}
+        27% {background-position: 0 -151px;}
+        30% {background-position: -151px -151px;}
+        33% {background-position: -302px -151px;}
+        36% {background-position: -453px -151px;}
+        39% {background-position: -604px -151px;}
+        42% {background-position: -755px -151px;}
+        45% {background-position: -906px -151px;}
+        48% {background-position: -1057px -151px;}
+        51% {background-position: 0 -302px;}
+        54% {background-position: -151px -302px;}
+        57% {background-position: -302px -302px;}
+        60% {background-position: -453px -302px;}
+        63% {background-position: -604px -302px;}
+        66% {background-position: -755px -302px;}
+        69% {background-position: -906px -302px;}
+        72% {background-position: -1057px -302px;}
+        75% {background-position: 0 -453px;}
+        78% {background-position: -151px -453px;}
+        81% {background-position: -302px -453px;}
+        84% {background-position: -453px -453px;}
+        87% {background-position: -604px -453px;}
+        90% {background-position: -755px -453px;}
+        93% {background-position: -906px -453px;}
+        96% {background-position: -1057px -453px;}
+      }
+      /* emoji */
+      @keyframes eyes {
+      0% {background-position: -640px top;}
+      33% {background-position: -800px top;}
+      66% {background-position: -960px top;}
+      }
+      @keyframes mouth {
+      0% {background-position: -160px top;}
+      33% {background-position: -320px top;}
+      66% {background-position: -480px top;}
+      }
+      @keyframes rotate {
+      0% {transform: rotate(0deg);}
+      100% {transform: rotate(360deg);}
+      }
+    </style>
+  </head>
+  <body>
+    <!-- emoji -->
+    <div class="emoji rotate">
+      <div class="emoji-e eyes"></div>
+      <div class="emoji-m mouth"></div>
+    </div>
+    <!-- blast -->
+    <div class="blast"></div>
+    <!-- mario -->
+    <div class="path">
+      <div class="mario walk"></div>
+      <div class="mario jump"></div>
+    </div>
+  </body>
+</html>
